@@ -5,7 +5,7 @@ is_exposto = True
 dano_exposto = 1.5
 
 # dano baseado na exposição
-if is_exposto:
+if is_exposto == True:
     dano_total = (dano_base + dano_bonus) * dano_exposto
 elif not is_exposto:
     dano_total = dano_base + dano_bonus
@@ -15,7 +15,7 @@ else:
 # Mensagem baseada no nível
 if nivel_player >= 50:
     if is_exposto:
-        print(f'Você deu {dano_total} de dano, o inimigo estava exposto, recebendo {dano_exposto}x.')
+        print(f'Você deu {dano_total} de dano. o inimigo estava exposto, recebendo {dano_exposto}x.')
     else:
         print(f'Você deu {dano_total} de dano, o inimigo não estava exposto.')
 else:
