@@ -1,7 +1,10 @@
 dano_base = 150
 houve_critico = True
 bonus_critico = 50
-tipo_defesa_inimigo = 'Fortificada'
+defesa = 0.85
+defesa_santa = 0
+defesa_reflexiva = 0.45
+tipo_defesa_inimigo = 'Reflexiva'
 dano_temporario = dano_base
 
 if houve_critico:
@@ -12,18 +15,27 @@ else:
 dano_temporario = dano_base
 
 if tipo_defesa_inimigo == 'Fortificada':
-   dano_temporario = dano_temporario * 0.85
+   dano_temporario = dano_temporario * defesa
+elif tipo_defesa_inimigo == 'Santa':
+    dano_temporario = dano_temporario * defesa_santa
+elif tipo_defesa_inimigo == 'Reflexiva':
+    dano_temporario = dano_temporario * defesa_reflexiva
 else:
    dano_temporario = dano_base
+
+if dano_temporario == defesa_santa:
+    defesa_santa = 'voce nao causou nenhum dano.'
 
 if tipo_defesa_inimigo == 'Fortificada':
     print(f'voce causou {dano_temporario}')
     print(f'o inimigo estava usando defesa {tipo_defesa_inimigo}, diminuindo seu dano em 15%')
     
 elif tipo_defesa_inimigo == 'Santa':
-    print(f'voce nao causou nenhum dano. o inimigo usou a defesa {tipo_defesa_inimigo}')
-
+    print(f'voce causou {defesa_santa} o inimigo usou a defesa {tipo_defesa_inimigo}')
 elif tipo_defesa_inimigo == 'Nenhuma':
     print(f'voce causou {dano_temporario} de dano.')
     print(f'o inimigo estava usando defesa {tipo_defesa_inimigo}')
     
+elif tipo_defesa_inimigo == 'Reflexiva':
+    print(f'voce causou {dano_base} de dano.')
+    print(f'O inimigo usou {tipo_defesa_inimigo} e você recebeu {dano_temporario} de volta.')
