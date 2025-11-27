@@ -1,2 +1,8 @@
 # trabalhos em python
-calculo de salario e aposentadoria utilizando python
+trabalhos em python feito no curso
+
+
+
+
+
+
