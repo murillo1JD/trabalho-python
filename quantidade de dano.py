@@ -1,20 +1,24 @@
+def calcular_dano(base, nivel, bonus_valor, exposto=False):
+    MULTIPLICADOR_EXPOSTO = 1.5
+    NIVEL_MIN_BONUS = 50
+
+    bonus_aplicado = bonus_valor if nivel >= NIVEL_MIN_BONUS else 0
+    multiplicador = MULTIPLICADOR_EXPOSTO if exposto else 1.0
+    
+    return (base + bonus_applied) * multiplicador
+
 dano_base = 100
 nivel_player = 60
 dano_bonus = 20
-is_exposto = False
-multiplicador_exposto = 1.5
+inimigo_exposto = False
 
-bonus_aplicado = dano_bonus if nivel_player >= 50 else 0
+dano_final = calcular_dano(dano_base, nivel_player, dano_bonus, inimigo_exposto)
 
-multiplicador = multiplicador_exposto if is_exposto else 1.0
-
-dano_total = (dano_base + bonus_aplicado) * multiplicador
-
-print(f"Você deu {dano_total} de dano.")
+print(f"Você causou {dano_final:.1f} de dano.")
 
 if nivel_player < 50:
-    print(f"Evolua até nível 50 para receber bônus de {dano_bonus}.")
-elif is_exposto:
-    print(f"O inimigo estava exposto, recebendo {multiplicador_exposto}x de dano!")
+    print(f"Dica: Alcance o nível 50 para desbloquear +{dano_bonus} de bônus!")
+elif inimigo_exposto:
+    print("O inimigo estava exposto! Dano crítico aplicado.")
 else:
-    print("O inimigo não estava exposto.")
+    print("O inimigo resistiu bem (não estava exposto).")
