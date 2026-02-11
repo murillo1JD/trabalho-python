@@ -1,20 +1,19 @@
-# divida
-salario = int(input('digite o salario: '))
-divida = int(input('digite a divida: '))
+salario = float(input('Digite o salário: '))
+divida = float(input('Digite o valor da dívida: '))
+
 sobra = salario - divida 
-print(f"o resultado e: {sobra}")
+print(f"Saldo após pagar a dívida: R$ {sobra:.2f}")
 
-# aposentadoria
-porcentagem = float(input('digite a porcentagem da aposentadoria: '))
-aposentadoria = sobra * porcentagem / 100
-print(f"o valor da aposentadoria e: {aposentadoria}")
-rentaMensal = aposentadoria * 0.12
-print(f"A rentabilidade mensal (12%) é: {rentaMensal}")
+porcentagem = float(input('Digite a porcentagem para aposentadoria (ex: 10): '))
+valor_aposentadoria = sobra * (porcentagem / 100)
+rentabilidade_mensal = valor_aposentadoria * 0.12  # 12% de rendimento
 
-# sobra total
-sobraTotal = sobra - aposentadoria
-print(f'o salario restante, retirando a aposentadoria e a divida, e: {sobraTotal}')
+print(f"Valor reservado para aposentadoria: R$ {valor_aposentadoria:.2f}")
+print(f"Estimativa de rendimento mensal (12%): R$ {rentabilidade_mensal:.2f}")
 
-# divisão entre eles
-divisao = sobraTotal / 2
-print(f'a divisao entre voces resultara em: {divisao}')
+sobra_total = sobra - valor_aposentadoria
+divisao_entre_parceiros = sobra_total / 2
+
+print("-" * 30)
+print(f"Salário líquido restante: R$ {sobra_total:.2f}")
+print(f"Cada pessoa receberá: R$ {divisao_entre_parceiros:.2f}")
