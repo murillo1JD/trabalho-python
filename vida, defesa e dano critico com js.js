@@ -1,11 +1,11 @@
 const danoBase = 150;
-const houveCritico = Math.random() < 0.3; 
+const critico = Math.random() < 0.3; 
 const bonusCritico = 50;
 
 const defesas = ["Fortificada", "Santa", "Nenhuma", "Reflexiva"];
 const tipoDefesaInimigo = defesas[Math.floor(Math.random() * defesas.length)];
 
-let danoTotal = danoBase + (houveCritico ? bonusCritico : 0);
+let danoTotal = danoBase + (critico ? bonusCritico : 0);
 
 const multiplicadores = {
     "Fortificada": 0.85,
@@ -16,7 +16,7 @@ const multiplicadores = {
 
 let danoFinal = danoTotal * multiplicadores[tipoDefesaInimigo];
 
-const statusCritico = houveCritico ? "SIM! 💥" : "Não.";
+const statusCritico = critico ? "SIM! 💥" : "Não.";
 const linha = "=".repeat(30);
 
 let resumo = `
