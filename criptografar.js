@@ -1,8 +1,8 @@
-let senha = prompt(Number("Digite sua senha: "))
+let senha = Number(prompt("Digite a senha: "));
 
-function criptografar (
-let numeroAleatorio= math.random(1, 1000),
-    senha = senha * numeroAleatorio 
+function criptografar(valor) {
+    valor += 10;
+    alert("Senha criptografada: " + valor);
+}
 
-
-);
+criptografar(senha);
